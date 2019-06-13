@@ -1,0 +1,121 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Coworking spase</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning fixed-top  ">
+            <img src="/img/f6433e66912.png">
+            <style>
+                img {
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    padding: 5px;
+                    width: 50px;
+                }
+            </style>
+            <a class="navbar-brand" href="~/user/Homecus.aspx" aria-label="Coworking" media="screen" style="font-family: 'Ekkamai Standard'; font-size: x-large; font-weight: normal; font-style: inherit; text-transform: capitalize; color: #FFFFFF;">Coworking</a>
+
+            <br />
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+                    <li class="nav-item">
+                        <a runat="server" class="nav-link" href="Homecus">Home</a>
+                        <script>
+                            function myFunction(elmnt, clr) {
+                                elmnt.style.color = clr;
+                            }
+                        </script>
+                    </li>
+
+                    <li class="nav-item">
+                        <a runat="server" class="nav-link" href="~/Category" onclick="myFunction(this, 'red')">Shop type</a>
+                        <script>
+                            function myFunction(elmnt, clr) {
+                                elmnt.style.color = clr;
+                            }
+                        </script>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a runat="server" class="nav-link" href="~/#">--------</a>
+                        <script>
+                            function myFunction(elmnt, clr) {
+                                elmnt.style.color = clr;
+                            }
+                        </script>
+                    </li>
+                    <li class="nav-item">
+                        <a runat="server" class="nav-link" href="~/#">--------</a>
+                        <script>
+                            function myFunction(elmnt, clr) {
+                                elmnt.style.color = clr;
+                            }
+                        </script>
+
+                    </li>
+                </ul>
+
+                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                    <AnonymousTemplate>
+                        <ul class="navbar-nav navbar-right ">
+                            <li class="nav-item"><a class="nav-link" runat="server" href="~/Register">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" runat="server" href="~/LoginCus">Log in</a></li>
+                        </ul>
+                    </AnonymousTemplate>
+
+                </asp:LoginView>
+            </div>
+        </nav>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Coworking spase</p>
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
